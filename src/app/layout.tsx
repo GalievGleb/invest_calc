@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Инвестиционный калькулятор | Skillspace",
+  title: "Инвестиционный калькулятор | InvestCalc",
   description:
     "Рассчитайте время или ежемесячные отчисления для достижения финансовой цели. Учет процентной ставки и начального капитала.",
 };
