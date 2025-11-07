@@ -2,7 +2,7 @@
 
 Веб-приложение для расчета инвестиций с учетом инфляции и визуализацией роста капитала.
 
-🔗 **Live Demo:** [https://galievgleb.github.io/skillspace-platform/](https://galievgleb.github.io/skillspace-platform/)
+🔗 **Live Demo:** [https://galievgleb.github.io/invest_calc/](https://galievgleb.github.io/invest_calc/)
 
 ## ✨ Возможности
 
