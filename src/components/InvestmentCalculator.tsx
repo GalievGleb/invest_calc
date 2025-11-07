@@ -20,11 +20,11 @@ import Checkbox from "./Checkbox";
 export default function InvestmentCalculator() {
   const [state, setState] = useState<CalculatorState>({
     mode: "payment",
-    currentAge: "25",
-    targetAge: "45",
-    initialCapital: "100000",
+    currentAge: "23",
+    targetAge: "30",
+    initialCapital: "2000000",
     monthlyContribution: "10000",
-    annualRate: "10",
+    annualRate: "13",
     desiredMonthlyIncome: "100000",
     targetAmount: "12000000",
     period: "240",
