@@ -21,10 +21,7 @@ export function formatCurrency(
 /**
  * Форматирование периода времени
  */
-export function formatPeriod(
-  years: number,
-  months: number
-): string {
+export function formatPeriod(years: number, months: number): string {
   const parts: string[] = [];
 
   if (years > 0) {
@@ -90,4 +87,3 @@ function getMonthWord(months: number): string {
 export function formatPercentage(rate: number, decimals: number = 2): string {
   return `${rate.toFixed(decimals)}%`;
 }
-

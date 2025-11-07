@@ -29,12 +29,12 @@ export default function Input({
 }: InputProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let newValue = e.target.value;
-    
+
     if (formatNumber) {
       // Удаляем все пробелы для получения чистого числа
       newValue = newValue.replace(/\s/g, "");
     }
-    
+
     onChange(newValue);
   };
 
@@ -50,14 +50,14 @@ export default function Input({
     if (value === "" || value === null || value === undefined) {
       return "";
     }
-    
+
     const stringValue = String(value);
-    
+
     // Если нужно форматирование - применяем всегда
     if (formatNumber && stringValue) {
       return stringValue.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
-    
+
     return stringValue;
   };
 
@@ -88,10 +88,7 @@ export default function Input({
           </span>
         )}
       </div>
-      {error && (
-        <p className="text-[var(--error)] text-sm mt-1">{error}</p>
-      )}
+      {error && <p className="text-[var(--error)] text-sm mt-1">{error}</p>}
     </div>
   );
 }
-

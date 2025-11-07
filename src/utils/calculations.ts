@@ -203,7 +203,8 @@ export function calculateMonthlyPayment({
   const monthlyRate = annualRate / 100 / 12;
 
   // Расчет будущей стоимости начального капитала
-  const futureValueOfInitial = initialCapital * Math.pow(1 + monthlyRate, months);
+  const futureValueOfInitial =
+    initialCapital * Math.pow(1 + monthlyRate, months);
 
   // Если начальный капитал уже достигнет цели
   if (futureValueOfInitial >= targetAmount) {
@@ -293,7 +294,8 @@ export function validateInputs(params: ValidationParams): ValidationResult {
   // Валидация ежемесячных отчислений
   if (params.monthlyContribution !== undefined) {
     if (params.monthlyContribution < 0) {
-      errors.monthlyContribution = "Ежемесячные отчисления не могут быть отрицательными";
+      errors.monthlyContribution =
+        "Ежемесячные отчисления не могут быть отрицательными";
     }
     if (params.monthlyContribution > 10000000) {
       errors.monthlyContribution = "Ежемесячные отчисления слишком большие";
@@ -335,4 +337,3 @@ export function validateInputs(params: ValidationParams): ValidationResult {
     errors,
   };
 }
-

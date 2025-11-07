@@ -42,7 +42,7 @@ export default function InvestmentChart({ data }: InvestmentChartProps) {
       const balance = dataPoint.balance;
       const invested = dataPoint.invested;
       const profit = balance - invested;
-      
+
       const years = Math.floor(month / 12);
       const months = month % 12;
 
@@ -170,4 +170,3 @@ function getMonthWord(months: number): string {
 
   return "месяцев";
 }
-

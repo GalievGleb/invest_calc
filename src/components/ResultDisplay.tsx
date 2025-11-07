@@ -44,4 +44,3 @@ export default function ResultDisplay({ results }: ResultDisplayProps) {
 }
 
 export { formatCurrency, formatPeriod };
-

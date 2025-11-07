@@ -54,17 +54,22 @@ export default function InvestmentCalculator() {
   };
 
   const handleCalculate = () => {
-    const initialCapital = parseFloat(state.initialCapital.replace(/\s/g, "")) || 0;
-    const monthlyContribution = parseFloat(state.monthlyContribution.replace(/\s/g, "")) || 0;
+    const initialCapital =
+      parseFloat(state.initialCapital.replace(/\s/g, "")) || 0;
+    const monthlyContribution =
+      parseFloat(state.monthlyContribution.replace(/\s/g, "")) || 0;
     const annualRate = parseFloat(state.annualRate.replace(/\s/g, "")) || 0;
-    const desiredIncome = parseFloat(state.desiredMonthlyIncome.replace(/\s/g, "")) || 0;
-    const inflationRate = parseFloat(state.inflationRate.replace(/\s/g, "")) || 0;
+    const desiredIncome =
+      parseFloat(state.desiredMonthlyIncome.replace(/\s/g, "")) || 0;
+    const inflationRate =
+      parseFloat(state.inflationRate.replace(/\s/g, "")) || 0;
     const period = parseInt(state.period.replace(/\s/g, "")) || 0;
     const currentAge = parseInt(state.currentAge.replace(/\s/g, "")) || 0;
     const targetAge = parseInt(state.targetAge.replace(/\s/g, "")) || 0;
 
     // Расчет периода из возраста
-    const calculatedPeriod = state.mode === "payment" ? (targetAge - currentAge) * 12 : period;
+    const calculatedPeriod =
+      state.mode === "payment" ? (targetAge - currentAge) * 12 : period;
     const years = calculatedPeriod / 12;
 
     // Корректировка желаемого дохода с учетом инфляции
@@ -77,14 +82,16 @@ export default function InvestmentCalculator() {
 
     // Расчет целевой суммы на основе желаемого дохода (с учетом инфляции)
     // Формула: годовой доход / процентная ставка
-    const targetAmount = state.mode === "payment" && adjustedIncome > 0 && annualRate > 0
-      ? (adjustedIncome * 12) / (annualRate / 100)
-      : parseFloat(state.targetAmount.replace(/\s/g, "")) || 0;
+    const targetAmount =
+      state.mode === "payment" && adjustedIncome > 0 && annualRate > 0
+        ? (adjustedIncome * 12) / (annualRate / 100)
+        : parseFloat(state.targetAmount.replace(/\s/g, "")) || 0;
 
     // Валидация входных данных
     const validation = validateInputs({
       initialCapital,
-      monthlyContribution: state.mode === "time" ? monthlyContribution : undefined,
+      monthlyContribution:
+        state.mode === "time" ? monthlyContribution : undefined,
       annualRate,
       targetAmount,
       months: state.mode === "payment" ? calculatedPeriod : undefined,
@@ -180,7 +187,10 @@ export default function InvestmentCalculator() {
         },
         {
           label: "Период накопления",
-          value: formatPeriod(Math.floor(calculatedPeriod / 12), calculatedPeriod % 12),
+          value: formatPeriod(
+            Math.floor(calculatedPeriod / 12),
+            calculatedPeriod % 12
+          ),
         },
         {
           label: "Достигнете цели в возрасте",
@@ -243,21 +253,24 @@ export default function InvestmentCalculator() {
                 <div className="mt-2 p-3 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-lg">
                   <p className="text-sm text-muted mb-1">
                     С учетом инфляции {state.inflationRate}% через{" "}
-                    {parseInt(state.targetAge) - parseInt(state.currentAge)} лет:
+                    {parseInt(state.targetAge) - parseInt(state.currentAge)}{" "}
+                    лет:
                   </p>
                   <p className="text-lg font-semibold text-[var(--primary)]">
                     {formatCurrency(
-                      parseFloat(state.desiredMonthlyIncome.replace(/\s/g, "")) *
+                      parseFloat(
+                        state.desiredMonthlyIncome.replace(/\s/g, "")
+                      ) *
                         Math.pow(
                           1 + parseFloat(state.inflationRate) / 100,
-                          (parseInt(state.targetAge) - parseInt(state.currentAge))
+                          parseInt(state.targetAge) - parseInt(state.currentAge)
                         )
                     )}
                   </p>
                   <p className="text-xs text-muted mt-1">
                     Именно столько вам понадобится через{" "}
-                    {parseInt(state.targetAge) - parseInt(state.currentAge)} лет для
-                    сохранения той же покупательной способности
+                    {parseInt(state.targetAge) - parseInt(state.currentAge)} лет
+                    для сохранения той же покупательной способности
                   </p>
                 </div>
               )}
@@ -364,4 +377,3 @@ export default function InvestmentCalculator() {
     </div>
   );
 }
-

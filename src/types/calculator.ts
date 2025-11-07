@@ -17,4 +17,3 @@ export interface CalculatorState {
   considerInflation: boolean;
   inflationRate: string;
 }
-
